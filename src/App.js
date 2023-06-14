@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-function App() {
+import Game from "./components/Game/Game";
+import Leaderboard from "./components/LeaderBoard/LeaderBoard";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav>
+        {/* Навигационные ссылки */}
+        <ul>
+          <li>
+            <Link to="/">Game</Link>
+          </li>
+          <li>
+            <Link to="/leaderboard">Leaderboard</Link>
+          </li>
+        </ul>
+      </nav>
+      {/* Маршруты */}
+      <Routes>
+        <Route path="/" exact component={<Game />} element={<Game />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
