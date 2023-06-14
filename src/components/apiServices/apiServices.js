@@ -1,5 +1,5 @@
 // Получение списка рекордов игры с сервера
-const link = "http://localhost:5000";
+const link = "https://snake-server-1w3c.onrender.com";
 const fetchLeaderboard = async () => {
   const response = await fetch(`${link}/leaderboard`);
   return response.ok && response.json();
